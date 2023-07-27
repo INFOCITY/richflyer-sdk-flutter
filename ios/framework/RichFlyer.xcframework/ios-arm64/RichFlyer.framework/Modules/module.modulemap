@@ -1,0 +1,11 @@
+framework module RichFlyer {
+  umbrella header "RichFlyer.h"
+
+  export *
+  module * { export * }
+}
+
+module RichFlyer.Swift {
+  header "RichFlyer-Swift.h"
+  requires objc
+}

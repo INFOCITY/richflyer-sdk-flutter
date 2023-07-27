@@ -1,0 +1,35 @@
+name: richflyer_sdk_flutter_example
+description: Demonstrates how to use the richflyer_sdk_flutter plugin.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: '>=2.18.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  richflyer_sdk_flutter:
+    git:
+      url: https://github.com/INFOCITY/richflyer-sdk-flutter.git
+      ref: 1.0.0
+
+  cupertino_icons: ^1.0.2
+  flutter_launcher_icons: ^0.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: 'assets/images/appicon.png'
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - pubspec.yaml

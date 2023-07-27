@@ -1,0 +1,41 @@
+name: richflyer_sdk_flutter
+description: 'By embedding this SDK in your Flutter app, you will be able to receive push notifications delivered by RichFlyer.RichFlyer is a multifunctional push notification delivery ASP service that offers ultra-fast delivery, push notification delivery with rich content, and more.'
+version: 1.0.0
+homepage: https://richflyer.net
+repository: https://github.com/INFOCITY/richflyer_sdk_flutter
+
+environment:
+  sdk: '>=2.18.0 <4.0.0'
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.3.3
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: jp.co.infocity.rf_flutter
+        pluginClass: RichflyerSdkFlutterPlugin
+      ios:
+        pluginClass: RichflyerSdkFlutterPlugin
+
+platforms:
+  android:
+  ios:
+
+screenshots:
+  - description: 'This screenshot shows the push notification screen with the video attached.'
+    path: image/notification_popup.png
+
+topics:
+  - notifications
+  - apns
+  - fcm
