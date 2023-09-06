@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		vMwuQpygblt8iPWSMj2ZQRNXEQo=
+		BBwKesxYm6zD34ZPFHkhXvwGh1U=
 		</data>
 		<key>Headers/RichFlyer-Swift.h</key>
 		<data>
@@ -18,55 +18,55 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		lpwm1lTNBdrDW1JC++2/X1m0o4o=
+		eGW48tttdwtrQ+LvYDM/HkYLy2k=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		Mep58/agufZYd+otNUoPfjXXliQ=
+		PwY/9iB10oQg/hlkxBmUOvbHWAo=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		Fx/KBYbDp2N/AuG5davftttQklw=
+		ggf+Ev9/RX90ah4QrGasjQOPuHE=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Yg+ITEdP5BiEx/AHzhLAzoREeW8=
+		K9lB9CZODcoakFBC/6BAAKDDVR4=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		z0ry3AVEDlPqO0DP4t0E/BMixNE=
+		mBW/LCkZP3XlwszWyOaT8Ff8blU=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		mQkuES62f1WLskMpVyUgb0aZUwQ=
+		cQhtsHZFRvVsjukzNxQLwswQc0I=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		z0ry3AVEDlPqO0DP4t0E/BMixNE=
+		mBW/LCkZP3XlwszWyOaT8Ff8blU=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BZx/pCKE2HHVuNJX+c66v/4wqKU=
+		IPq7ggqwMjTbE3bX36MVW6Gh6ug=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Yg+ITEdP5BiEx/AHzhLAzoREeW8=
+		K9lB9CZODcoakFBC/6BAAKDDVR4=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		EbJssaVqBtaxnrCsXeaOn6nxm+A=
+		laU0baxdPrBYhoq7jIdpVnqPyc4=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		IClul1Odv6RREU2VhPF0HLtDvIU=
+		6n9UPCPsK6FSQ8PnvpNiarHqNWI=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		EbJssaVqBtaxnrCsXeaOn6nxm+A=
+		laU0baxdPrBYhoq7jIdpVnqPyc4=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		PFTSKC3HG1eS3KsC+a5KUZIg6w4=
+		u4cQXc5AToySmaDbJxphMwQuaD0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -95,21 +95,13 @@
 	<dict>
 		<key>Assets.car</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vMwuQpygblt8iPWSMj2ZQRNXEQo=
-			</data>
 			<key>hash2</key>
 			<data>
-			U4DapYlafFyQa4lMHOUCGJQSnfpI61UkeAbe9v2Wrh8=
+			lCQ56hVJAUr+wtLq4jfEaOJdMjHzVEcZMHhI7we17sw=
 			</data>
 		</dict>
 		<key>Headers/RichFlyer-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			v0s4g7RxSwu1hwuFYkX8C4oKYGc=
-			</data>
 			<key>hash2</key>
 			<data>
 			w8H5o7mE95lFZR8FMzY3i2WtZiT3bzgJN9izty+m/S8=
@@ -117,10 +109,6 @@
 		</dict>
 		<key>Headers/RichFlyer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5CG/X8KNcesgEauBYCzQXX7yRjQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			JjvI9GMaDvysptzY2uUepga2SkJfq56SzB+/tZJnJ3k=
@@ -128,142 +116,90 @@
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Mep58/agufZYd+otNUoPfjXXliQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			3BROQSdkLJTk0tduy+cfJlHKWT86gRK3i9jrdweZzmU=
+			pNMbf9p89wZkl+iDZBObenEDv0B+RDdemYTJ6cHhqDE=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Fx/KBYbDp2N/AuG5davftttQklw=
-			</data>
 			<key>hash2</key>
 			<data>
-			sv3xRC391K+Sm5K5CiPhZ5CTCm9fkQnpxZVOaFbIgDQ=
+			Ee8xP9CQEgr1VJnrbxTQLnwNtfpAUq4qBgfiJyO+UN4=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Yg+ITEdP5BiEx/AHzhLAzoREeW8=
-			</data>
 			<key>hash2</key>
 			<data>
-			OnYURFHhfw51RH/mNWG09eZsiRKtJOYgbPwEZ8BYw4o=
+			TaqCo+v8Z0KtV5UiyRiUWWJ8yVE2tVg8GBZN1vHbK4s=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			z0ry3AVEDlPqO0DP4t0E/BMixNE=
-			</data>
 			<key>hash2</key>
 			<data>
-			psjMbS1llJKp9tXSST3xbmRluVkURxrKtCLad2Z0HNI=
+			wm2RlasGnrmpiLdUkUtYInTSm2tI+0zHJTE8bbbN6+w=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mQkuES62f1WLskMpVyUgb0aZUwQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			HGqJpVL/HPakQihG1sVM6Yu5i5PO943ic1jewhCI3+8=
+			hEnWyspi7qb6nwB6ccGrPdyNPLpy4y4UFYpsMXflWeM=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			z0ry3AVEDlPqO0DP4t0E/BMixNE=
-			</data>
 			<key>hash2</key>
 			<data>
-			psjMbS1llJKp9tXSST3xbmRluVkURxrKtCLad2Z0HNI=
+			wm2RlasGnrmpiLdUkUtYInTSm2tI+0zHJTE8bbbN6+w=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BZx/pCKE2HHVuNJX+c66v/4wqKU=
-			</data>
 			<key>hash2</key>
 			<data>
-			U49k56SlS6v3+t7qGucbx5e3+Vr5ZD0mYC2NRgyMi0c=
+			f8xXcOBC6tfIXwFP4g4yNkAzrd3hFRlbc9fSQy9hgn4=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Yg+ITEdP5BiEx/AHzhLAzoREeW8=
-			</data>
 			<key>hash2</key>
 			<data>
-			OnYURFHhfw51RH/mNWG09eZsiRKtJOYgbPwEZ8BYw4o=
+			TaqCo+v8Z0KtV5UiyRiUWWJ8yVE2tVg8GBZN1vHbK4s=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			EbJssaVqBtaxnrCsXeaOn6nxm+A=
-			</data>
 			<key>hash2</key>
 			<data>
-			U9Aopx2fQUeGgAoaR785vYhsSu0FAFfzzKGqRltMPos=
+			+bxldnqCzal8CbieNuBu1iT/e5BaqwKAmqxU087orZQ=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IClul1Odv6RREU2VhPF0HLtDvIU=
-			</data>
 			<key>hash2</key>
 			<data>
-			vEY7+gjr+TKiSGnT176v3ey93UJ8hxOWRNGlrdTLRao=
+			iB2cByt6PbuQ2HoDbPNVf6EazRYmD4EwtlsH6Gg7bWs=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			EbJssaVqBtaxnrCsXeaOn6nxm+A=
-			</data>
 			<key>hash2</key>
 			<data>
-			U9Aopx2fQUeGgAoaR785vYhsSu0FAFfzzKGqRltMPos=
+			+bxldnqCzal8CbieNuBu1iT/e5BaqwKAmqxU087orZQ=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PFTSKC3HG1eS3KsC+a5KUZIg6w4=
-			</data>
 			<key>hash2</key>
 			<data>
-			ss5kQQoK/TggfPtCrkK7po/h+meaKavpQwySol4Hvk0=
+			oZvJR/4nVuMzXStltBKE0o8yiZskQceUb+E6btnRzPY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3XhfHQpAVqtDoxHVLz3MTeHQu7E=
-			</data>
 			<key>hash2</key>
 			<data>
 			B3JvBWnX3caPqbPBXikyXvs+Yt7Vbylc59jAzazNn5A=
@@ -271,10 +207,6 @@
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ChzZeGkFJS1TdEbBSBgRzvBhVUM=
-			</data>
 			<key>hash2</key>
 			<data>
 			9eEoO5iBm38lCcg89a83Q57Cao8gE05FEy/RVFyFjGo=
@@ -284,10 +216,6 @@
 		</dict>
 		<key>ja.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Xga1ICChpahkC1HngkcXAI91DmI=
-			</data>
 			<key>hash2</key>
 			<data>
 			uzMvBr0UejPPQVUuhE+WSw/eOoCQxJYRxCqGnNq4V3E=

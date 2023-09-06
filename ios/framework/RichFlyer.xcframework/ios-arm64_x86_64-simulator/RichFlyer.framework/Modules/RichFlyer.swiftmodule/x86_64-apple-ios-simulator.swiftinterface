@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
-// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RichFlyer
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RichFlyer
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import CoreHaptics
@@ -59,7 +59,7 @@ extension RichFlyer.RFApp {
 @available(iOS 10.0, *)
 extension RichFlyer.RFApp {
   public static func setRFNotficationDelegate(delegate: RichFlyer.RFNotificationDelegate)
-  public static func willPresentNotification(options: UserNotifications.UNNotificationPresentationOptions = [.alert, .badge, .sound], completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
+  public static func willPresentNotification(options: UserNotifications.UNNotificationPresentationOptions, completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
   public static func didReceiveNotification(response: UserNotifications.UNNotificationResponse, handler: ((RichFlyer.RFAction?, Swift.String?) -> Swift.Void)?)
   public static func getReceivedData() -> Swift.Array<RichFlyer.RFContent>?
   public static func getLatestReceivedData() -> RichFlyer.RFContent?

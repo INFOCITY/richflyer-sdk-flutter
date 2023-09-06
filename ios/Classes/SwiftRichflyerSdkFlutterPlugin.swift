@@ -84,7 +84,12 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
                 presentationOptions.insert(.badge)
             }
             if alert {
-                presentationOptions.insert(.alert)
+                if #available(iOS 14.0, *) {
+                    presentationOptions.insert(.list)
+                    presentationOptions.insert(.banner)
+                } else {
+                    presentationOptions.insert(.alert)
+                }
             }
             if sound {
                 presentationOptions.insert(.sound)

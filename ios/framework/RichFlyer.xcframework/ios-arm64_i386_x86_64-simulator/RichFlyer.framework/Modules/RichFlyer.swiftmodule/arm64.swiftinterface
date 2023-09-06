@@ -1,0 +1,210 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RichFlyer
+import AVFoundation
+import CoreHaptics
+import Foundation
+@_exported import RichFlyer
+import Security
+import Swift
+import SystemConfiguration
+import UIKit
+import UserNotifications
+import UserNotificationsUI
+import WebKit
+public struct RFResult {
+  public let result: Swift.Bool
+  public let message: Swift.String
+  public let code: Swift.Int
+}
+@_hasMissingDesignatedInitializers public class RFApp {
+  public static var sandbox: Swift.Bool {
+    get
+  }
+  public static func setServiceKey(serviceKey: Swift.String, appGroupId: Swift.String, sandbox: Swift.Bool)
+  @available(*, deprecated, message: "Use registDevice(deviceToken:completion:) instead")
+  public static func registDevice(deviceToken: Foundation.Data)
+  public static func registDevice(deviceToken: Foundation.Data, completion: @escaping (RichFlyer.RFResult) -> Swift.Void)
+  public static func setBadgeNumber(application: UIKit.UIApplication, badge: Swift.Int)
+  public static func resetBadgeNumber(application: UIKit.UIApplication)
+  @available(*, deprecated, message: "Use registSegments(segments:completion:) instead")
+  public static func registSegments(segments: [Swift.String : Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
+  public static func registSegments(segments: [Swift.String : Swift.String], completion: @escaping (RichFlyer.RFResult) -> Swift.Void)
+  public static func registSegments(dateSegments: [Swift.String : Foundation.Date], completion: @escaping (RichFlyer.RFResult) -> Swift.Void)
+  public static func registSegments(intSegments: [Swift.String : Swift.Int], completion: @escaping (RichFlyer.RFResult) -> Swift.Void)
+  public static func registSegments(boolSegments: [Swift.String : Swift.Bool], completion: @escaping (RichFlyer.RFResult) -> Swift.Void)
+  public static func registSegments(stringSegments: [Swift.String : Swift.String], intSegments: [Swift.String : Swift.Int], boolSegments: [Swift.String : Swift.Bool], dateSegments: [Swift.String : Foundation.Date], completion: @escaping (RichFlyer.RFResult) -> Swift.Void)
+  public static func getSegments() -> [Swift.String : Swift.String]?
+  public static func setLaunchMode(modes: [RichFlyer.RFContentType]?)
+  public static func isRichFlyerNotification(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @objc deinit
+}
+public enum RFAuthorizationOptions {
+  case badge
+  case sound
+  case alert
+  case carPlay
+  public static func == (a: RichFlyer.RFAuthorizationOptions, b: RichFlyer.RFAuthorizationOptions) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension RFApp {
+  public static func requestAuthorization(application: UIKit.UIApplication, applicationDelegate: UIKit.UIApplicationDelegate, options: [RichFlyer.RFAuthorizationOptions] = [.badge, .sound, .alert, .carPlay])
+}
+@available(iOS 10.0, *)
+extension RFApp {
+  public static func setRFNotficationDelegate(delegate: RichFlyer.RFNotificationDelegate)
+  public static func willPresentNotification(options: UserNotifications.UNNotificationPresentationOptions = [.alert, .badge, .sound], completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
+  public static func didReceiveNotification(response: UserNotifications.UNNotificationResponse, handler: ((RichFlyer.RFAction?, Swift.String?) -> Swift.Void)?)
+  public static func getReceivedData() -> Swift.Array<RichFlyer.RFContent>?
+  public static func getLatestReceivedData() -> RichFlyer.RFContent?
+}
+public enum RFSendEventOption {
+  case firebase
+  case google
+  case facebook
+  case flurry
+  public static func == (a: RichFlyer.RFSendEventOption, b: RichFlyer.RFSendEventOption) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@_hasMissingDesignatedInitializers public class RFLogEventsUtil {
+  public static func setLogForFirebase(closure: @escaping (Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
+  public static func setLogForGoogle(closure: @escaping (Swift.String, Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
+  public static func setLogForFacebook(closure: @escaping (Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
+  public static func setLogForFlurry(closure: @escaping (Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @available(iOS 10.0, *)
+open class RFNotificationContent : UIKit.UIViewController, UserNotificationsUI.UNNotificationContentExtension {
+  @objc public func didReceive(_ notification: UserNotifications.UNNotification)
+  @objc public var mediaPlayPauseButtonType: UserNotificationsUI.UNNotificationContentExtensionMediaPlayPauseButtonType {
+    @objc get
+  }
+  @objc public var mediaPlayPauseButtonFrame: CoreGraphics.CGRect {
+    @objc get
+  }
+  @objc public var mediaPlayPauseButtonTintColor: UIKit.UIColor
+  @objc public func mediaPlay()
+  @objc public func mediaPause()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public enum RFContentType {
+  case text
+  case image
+  case gif
+  case movie
+  public static func == (a: RichFlyer.RFContentType, b: RichFlyer.RFContentType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@_hasMissingDesignatedInitializers public class RFContent {
+  public var title: Swift.String {
+    get
+  }
+  public var body: Swift.String {
+    get
+  }
+  public var notificationId: Swift.String {
+    get
+  }
+  public var imagePath: Foundation.URL? {
+    get
+  }
+  public var receivedDate: Foundation.NSDate? {
+    get
+  }
+  public var type: RichFlyer.RFContentType {
+    get
+  }
+  public var notificationDate: Foundation.NSDate? {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @available(iOS 10.0, *)
+public class RFNotificationService {
+  public static func configureRFNotification(content: UserNotifications.UNMutableNotificationContent, appGroupId: Swift.String, displayNavigate: Swift.Bool, completeHandler: @escaping ((UserNotifications.UNMutableNotificationContent) -> Swift.Void))
+  public static func configureRFNotification(content: UserNotifications.UNMutableNotificationContent, appGroupId: Swift.String, completeHandler: @escaping ((UserNotifications.UNMutableNotificationContent) -> Swift.Void))
+  @objc deinit
+}
+public enum RFAlertActionStyle : Swift.Int {
+  case `default`
+  case cancel
+  case destructive
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class RFAlertController : UIKit.UIViewController {
+  public static let CLALERTVIEW_WIDTH: CoreGraphics.CGFloat
+  convenience public init(application: UIKit.UIApplication, title: Swift.String?, message: Swift.String?)
+  public func addView(view: UIKit.UIView) -> RichFlyer.RFAlertController
+  public func addImage(imageName: Swift.String) -> RichFlyer.RFAlertController
+  @objc override dynamic public func viewDidLoad()
+  public func present(parent: UIKit.UIViewController, completeHandler: @escaping () -> Swift.Void)
+  public func present(completeHandler: @escaping () -> Swift.Void)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public protocol RFNotificationDelegate {
+  @available(iOS 10.0, *)
+  func willPresentNotification(_ center: UserNotifications.UNUserNotificationCenter, willPresent notification: UserNotifications.UNNotification, withCompletionHandler completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
+  @available(iOS 10.0, *)
+  func didReceiveNotification(_ center: UserNotifications.UNUserNotificationCenter, didReceive response: UserNotifications.UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void)
+  @available(iOS 10.0, *)
+  func dismissedContentDisplay(_ action: RichFlyer.RFAction?, content: RichFlyer.RFContent?)
+}
+public class RFContentDisplay {
+  public init()
+  public init(content: RichFlyer.RFContent)
+  public func setContent(content: RichFlyer.RFContent)
+  public func setButtonColor(color: UIKit.UIColor)
+  public func present(parent: UIKit.UIViewController, completeHandler: ((RichFlyer.RFAction) -> ())?)
+  public func dismiss()
+  @objc deinit
+}
+extension Optional {
+  public mutating func ensure(_ f: () throws -> Wrapped) rethrows -> Wrapped
+}
+@_hasMissingDesignatedInitializers public class RFLastNotificationInfo {
+  public static var identifier: Swift.String? {
+    get
+  }
+  public static var title: Swift.String? {
+    get
+  }
+  public static var subTitle: Swift.String? {
+    get
+  }
+  public static func reset()
+  public static func saveLastNotificationId(content: UserNotifications.UNNotificationContent, appGroup: Swift.String)
+  public static func loadLastNotificationId(appGroup: Swift.String) -> Swift.String?
+  @objc deinit
+}
+public struct RFAction {
+  public let title: Swift.String
+  public let type: Swift.String
+  public let value: Swift.String
+  public let index: Swift.Int
+}
+extension RichFlyer.RFAuthorizationOptions : Swift.Equatable {}
+extension RichFlyer.RFAuthorizationOptions : Swift.Hashable {}
+extension RichFlyer.RFSendEventOption : Swift.Equatable {}
+extension RichFlyer.RFSendEventOption : Swift.Hashable {}
+extension RichFlyer.RFContentType : Swift.Equatable {}
+extension RichFlyer.RFContentType : Swift.Hashable {}
+extension RichFlyer.RFAlertActionStyle : Swift.Equatable {}
+extension RichFlyer.RFAlertActionStyle : Swift.Hashable {}
+extension RichFlyer.RFAlertActionStyle : Swift.RawRepresentable {}

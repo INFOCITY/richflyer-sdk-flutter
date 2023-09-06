@@ -1100,7 +1100,6 @@
                 "kind": "TypeNominal",
                 "name": "UNNotificationPresentationOptions",
                 "printedName": "UserNotifications.UNNotificationPresentationOptions",
-                "hasDefaultArg": true,
                 "usr": "c:@E@UNNotificationPresentationOptions"
               },
               {
