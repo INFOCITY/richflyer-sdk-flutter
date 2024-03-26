@@ -97,7 +97,22 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
             
             let rawValue = presentationOptions.rawValue
             UserDefaults.standard.set(rawValue, forKey: "RICHFLYER_NOTIFICATION_OPTION")
-            
+        case "postMessage":
+            // イベント駆動型プッシュリクエスト
+            guard let params =  call.arguments as? [String:Any],
+            let events = params["events"] as? [String] else {
+                result(FlutterError(code: "argument error", message: "argument error", details: nil))
+                break
+            }
+            let variables = params["variables"] as? [String:String]
+            let standbyTime = params["standbyTime"] as? NSNumber
+            postMessage(events: events, variables: variables, standbyTime: standbyTime)
+
+        case "cancelPosting":
+            // 受信した通知の表示
+            guard let eventPostId =  call.arguments as? String else {break}
+            cancelPosting(eventPostId)
+
         default:
             result(FlutterMethodNotImplemented)
         }
@@ -234,6 +249,40 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
               display.dismiss()
           })
       })
+    }
+
+    // イベント駆動型プッシュリクエスト
+    private func postMessage(events: [String]?, variables:[String:String]?, standbyTime: NSNumber?) {
+      RFApp.postMessage(events: events, variables: variables, standbyTime: standbyTime) { result, eventPostIds in
+        if let channel = SwiftRichflyerSdkFlutterPlugin.channel {
+            var dictionaries:[String: Any] = ["result":result.result,"message":result.message,"code":result.code]
+          
+            if let eventPostIds = eventPostIds {
+              dictionaries["eventPostIds"] = eventPostIds
+            }
+          
+            do {
+                let data = try JSONSerialization.data(withJSONObject: dictionaries, options: [])
+                if let json = String(data: data, encoding: .utf8) {
+                    channel.invokeMethod("onCallbackPostMessage", arguments: json)
+                }
+            } catch {}
+        }
+      }
+    }
+
+    private func cancelPosting(_ eventPostId: String) {
+      RFApp.cancelPosting(eventPostId) { result in
+        if let channel = SwiftRichflyerSdkFlutterPlugin.channel {
+            let dictionaries:[String: Any] = ["result":result.result,"message":result.message,"code":result.code]
+            do {
+                let data = try JSONSerialization.data(withJSONObject: dictionaries, options: [])
+                if let json = String(data: data, encoding: .utf8) {
+                    channel.invokeMethod("onCallbackResult", arguments: json)
+                }
+            } catch {}
+        }
+      }
     }
     
     // jsonへ変換する

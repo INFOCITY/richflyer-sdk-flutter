@@ -1,13 +1,15 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RichFlyer
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import CoreHaptics
+import DeveloperToolsSupport
 import Foundation
 @_exported import RichFlyer
 import Security
 import Swift
+import SwiftUI
 import SystemConfiguration
 import UIKit
 import UserNotifications
@@ -15,6 +17,7 @@ import UserNotificationsUI
 import WebKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 public struct RFResult {
   public let result: Swift.Bool
   public let message: Swift.String
@@ -40,6 +43,8 @@ public struct RFResult {
   public static func getSegments() -> [Swift.String : Swift.String]?
   public static func setLaunchMode(modes: [RichFlyer.RFContentType]?)
   public static func isRichFlyerNotification(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  public static func postMessage(events: [Swift.String]?, variables: [Swift.String : Swift.String]?, standbyTime: Foundation.NSNumber?, completion: @escaping (_ result: RichFlyer.RFResult, _ eventPostIds: [Swift.String]?) -> Swift.Void)
+  public static func cancelPosting(_ eventPostId: Swift.String, completion: @escaping (_ result: RichFlyer.RFResult) -> Swift.Void)
   @objc deinit
 }
 public enum RFAuthorizationOptions {
@@ -54,11 +59,11 @@ public enum RFAuthorizationOptions {
   }
 }
 extension RichFlyer.RFApp {
-  public static func requestAuthorization(application: UIKit.UIApplication, applicationDelegate: UIKit.UIApplicationDelegate, options: [RichFlyer.RFAuthorizationOptions] = [.badge, .sound, .alert, .carPlay])
+  public static func requestAuthorization(application: UIKit.UIApplication, applicationDelegate: any UIKit.UIApplicationDelegate, options: [RichFlyer.RFAuthorizationOptions] = [.badge, .sound, .alert, .carPlay])
 }
 @available(iOS 10.0, *)
 extension RichFlyer.RFApp {
-  public static func setRFNotficationDelegate(delegate: RichFlyer.RFNotificationDelegate)
+  public static func setRFNotficationDelegate(delegate: any RichFlyer.RFNotificationDelegate)
   public static func willPresentNotification(options: UserNotifications.UNNotificationPresentationOptions, completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
   public static func didReceiveNotification(response: UserNotifications.UNNotificationResponse, handler: ((RichFlyer.RFAction?, Swift.String?) -> Swift.Void)?)
   public static func getReceivedData() -> Swift.Array<RichFlyer.RFContent>?
@@ -117,6 +122,9 @@ public enum RFContentType {
     get
   }
   public var notificationId: Swift.String {
+    get
+  }
+  public var eventId: Swift.String {
     get
   }
   public var imagePath: Foundation.URL? {
@@ -185,6 +193,9 @@ extension Swift.Optional {
   public static var identifier: Swift.String? {
     get
   }
+  public static var eventId: Swift.String? {
+    get
+  }
   public static var title: Swift.String? {
     get
   }
@@ -194,6 +205,7 @@ extension Swift.Optional {
   public static func reset()
   public static func saveLastNotificationId(content: UserNotifications.UNNotificationContent, appGroup: Swift.String)
   public static func loadLastNotificationId(appGroup: Swift.String) -> Swift.String?
+  public static func loadLastEventId(appGroup: Swift.String) -> Swift.String?
   @objc deinit
 }
 public struct RFAction {

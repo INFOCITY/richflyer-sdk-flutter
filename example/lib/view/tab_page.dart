@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:richflyer_sdk_flutter_example/view/received_page.dart';
 import 'package:richflyer_sdk_flutter_example/view/segment_page.dart';
+import 'package:richflyer_sdk_flutter_example/view/event_page.dart';
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class TabPage extends StatefulWidget {
 
 class _TabPageState extends State<TabPage> {
   int _currentIndex = 0;
-  final _page = [SegmentPage(), ReceivedPage()];
+  final _page = [SegmentPage(), ReceivedPage(), EventPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,13 @@ class _TabPageState extends State<TabPage> {
                 size: 30,
               ),
               label: 'Received'),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage('assets/images/event.png'),
+                size: 30,
+              ),
+              label: 'Event'),
+
         ],
         currentIndex: _currentIndex,
         fixedColor: Colors.blue,

@@ -56,4 +56,15 @@ abstract class RichflyerSdkFlutterPlatform {
   Future<void> setForegroundNotification(bool badge,bool alert,bool sound) async {
     throw UnimplementedError('setForegroundNotification() has not been implemented.');
   }
+
+  // イベント駆動型プッシュリクエスト
+  Future<void> postMessage(List<String> events, Map<String,String>? variables, int? standbyTime, Function(RFResult result, List<String> evnetPostIds) callback){
+    throw UnimplementedError('postMessage() has not been implemented.');
+  }
+
+  // イベント駆動型プッシュリクエストのキャンセル
+  Future<void> cancelPosting(String eventPostId, Function(RFResult result) callback){
+    throw UnimplementedError('cancelPosting() has not been implemented.');
+  }
+
 }

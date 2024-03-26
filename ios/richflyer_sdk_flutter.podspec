@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'richflyer_sdk_flutter'
-  s.version          = '1.0.2'
+  s.version          = '1.2.0'
   s.summary          = 'By embedding this SDK in your Flutter app, you will be able to receive push notifications delivered by RichFlyer.RichFlyer is a multifunctional push notification delivery ASP service that offers ultra-fast delivery, push notification delivery with rich content, and more.'
   s.description      = <<-DESC
 A new Flutter project.

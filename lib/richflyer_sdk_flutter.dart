@@ -106,4 +106,14 @@ class RichflyerSdkFlutter {
   Future<void> setForegroundNotification(bool badge,bool alert,bool sound) async {
     return RichflyerSdkFlutterPlatform.instance.setForegroundNotification(badge,alert,sound);
   }
+
+  // イベント駆動型プッシュリクエスト
+  Future<void> postMessage(List<String> events, Map<String,String>? variables, int? standbyTime, Function(RFResult result, List<String> evnetPostIds) callback){
+    return RichflyerSdkFlutterPlatform.instance.postMessage(events, variables, standbyTime, callback);
+  }
+
+  // イベント駆動型プッシュリクエストのキャンセル
+  Future<void> cancelPosting(String eventPostId, Function(RFResult result) callback){
+    return RichflyerSdkFlutterPlatform.instance.cancelPosting(eventPostId, callback);
+  }
 }

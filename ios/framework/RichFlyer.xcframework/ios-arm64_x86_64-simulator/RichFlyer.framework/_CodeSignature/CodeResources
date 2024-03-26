@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		BBwKesxYm6zD34ZPFHkhXvwGh1U=
+		yNlDhjVG4e2I8b0cmvWADB0HfFE=
 		</data>
 		<key>Headers/RichFlyer-Swift.h</key>
 		<data>
-		v0s4g7RxSwu1hwuFYkX8C4oKYGc=
+		Loqgw91VpUodiXU4JS1ScwX1Wzo=
 		</data>
 		<key>Headers/RichFlyer.h</key>
 		<data>
@@ -18,59 +18,63 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		eGW48tttdwtrQ+LvYDM/HkYLy2k=
+		fajPeDQxl4bIvnDzFjdouVoO2xI=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		PwY/9iB10oQg/hlkxBmUOvbHWAo=
+		1vHRbx1r0KRSZwZM8AURY7eOP1s=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		ggf+Ev9/RX90ah4QrGasjQOPuHE=
+		3XtL9mleihrGg+Kp0C5GhvLWFnw=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		K9lB9CZODcoakFBC/6BAAKDDVR4=
+		KlF1w+GX46ZPyL0nOhcwYjNXWMI=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		mBW/LCkZP3XlwszWyOaT8Ff8blU=
+		gke0tu6M33E6N7t/SNAWhbHJbi0=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		cQhtsHZFRvVsjukzNxQLwswQc0I=
+		8q1vVLgVWIhEMGD4Fj4cB9km2c0=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		mBW/LCkZP3XlwszWyOaT8Ff8blU=
+		gke0tu6M33E6N7t/SNAWhbHJbi0=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		IPq7ggqwMjTbE3bX36MVW6Gh6ug=
+		YgIYGXu/bk8a/kulIcrWbNy8Iws=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		K9lB9CZODcoakFBC/6BAAKDDVR4=
+		KlF1w+GX46ZPyL0nOhcwYjNXWMI=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		laU0baxdPrBYhoq7jIdpVnqPyc4=
+		9hibZLQAepGAClWSR/zua5Ne1Lc=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		6n9UPCPsK6FSQ8PnvpNiarHqNWI=
+		EIZM7ejcWezr+k1KZLwK0LEIKAg=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		laU0baxdPrBYhoq7jIdpVnqPyc4=
+		9hibZLQAepGAClWSR/zua5Ne1Lc=
 		</data>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		u4cQXc5AToySmaDbJxphMwQuaD0=
+		6TuOghu15mucpPSvmWePOaEJMSM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		3XhfHQpAVqtDoxHVLz3MTeHQu7E=
+		WZWhY4v4lXcFs7MwQXZl1M1Czrs=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		d+oHfpOIda2gEff3eE1ViE4OrFU=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -97,14 +101,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lCQ56hVJAUr+wtLq4jfEaOJdMjHzVEcZMHhI7we17sw=
+			uASGmX+oswwEuOc1E8othmtq4J5/7VVyAAspS/8o/CE=
 			</data>
 		</dict>
 		<key>Headers/RichFlyer-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			w8H5o7mE95lFZR8FMzY3i2WtZiT3bzgJN9izty+m/S8=
+			YGr5abPoxEIW0yU6ZjidELH9M40Zx+8DbU7x2mtNftU=
 			</data>
 		</dict>
 		<key>Headers/RichFlyer.h</key>
@@ -118,91 +122,98 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pNMbf9p89wZkl+iDZBObenEDv0B+RDdemYTJ6cHhqDE=
+			9uJq1L+n6cidYYIkykPG0wafXnGnhTOWNA5LJJ5ObWE=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ee8xP9CQEgr1VJnrbxTQLnwNtfpAUq4qBgfiJyO+UN4=
+			p2fE0AdusvjlVTss1O5DqeCBTNTnqpZvp0UqbphWcvY=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TaqCo+v8Z0KtV5UiyRiUWWJ8yVE2tVg8GBZN1vHbK4s=
+			JFfyzbeAId1krli4LHfjEOGdkjN44d0Te5yXTNkEjjs=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wm2RlasGnrmpiLdUkUtYInTSm2tI+0zHJTE8bbbN6+w=
+			+0QxQKbYN+wkSvtEzzfvWKxQJQ7hoHW0RLNiuwRFmUo=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hEnWyspi7qb6nwB6ccGrPdyNPLpy4y4UFYpsMXflWeM=
+			KLqW3DVwHwj/Fa36+0qnk3V1IQoU3XjxTzbuDshCWhI=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wm2RlasGnrmpiLdUkUtYInTSm2tI+0zHJTE8bbbN6+w=
+			+0QxQKbYN+wkSvtEzzfvWKxQJQ7hoHW0RLNiuwRFmUo=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f8xXcOBC6tfIXwFP4g4yNkAzrd3hFRlbc9fSQy9hgn4=
+			97Xn33/CCtKJTYZj0HM1y9EW0AFalyXBmwJgNbJ/Qtc=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TaqCo+v8Z0KtV5UiyRiUWWJ8yVE2tVg8GBZN1vHbK4s=
+			JFfyzbeAId1krli4LHfjEOGdkjN44d0Te5yXTNkEjjs=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+bxldnqCzal8CbieNuBu1iT/e5BaqwKAmqxU087orZQ=
+			QuKXpT8sH/tBWVaHD97JnVkrs41aMJcCsfbT7amPkes=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iB2cByt6PbuQ2HoDbPNVf6EazRYmD4EwtlsH6Gg7bWs=
+			KNgvExmJSQ3yaDswEbYDDu8aqFbnueXYvMlrBDEen6I=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+bxldnqCzal8CbieNuBu1iT/e5BaqwKAmqxU087orZQ=
+			QuKXpT8sH/tBWVaHD97JnVkrs41aMJcCsfbT7amPkes=
 			</data>
 		</dict>
 		<key>Modules/RichFlyer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oZvJR/4nVuMzXStltBKE0o8yiZskQceUb+E6btnRzPY=
+			cBTe1hClkNSxHaPby5Vtpi8Jl2oO8bjHdA12FuYtRWk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			B3JvBWnX3caPqbPBXikyXvs+Yt7Vbylc59jAzazNn5A=
+			VvWmN9XfKDOQTEDYlzI0gLhJzE3RGHeSm78epWYbSGQ=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QT0uOib/7PwxRuvJnuT1iHGlH115qcvdhA9ijVktSOo=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>

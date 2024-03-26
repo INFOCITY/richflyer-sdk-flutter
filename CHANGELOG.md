@@ -9,3 +9,10 @@
 ## 1.0.2
 
 * Update iOS SDK v3.5.9
+
+## 1.2.0
+
+* Update iOS SDK v3.7.0
+  * Event-driven message delivery functionality is supported.
+* Update Android SDK v1.6.0
+  * Event-driven message delivery functionality is supported.

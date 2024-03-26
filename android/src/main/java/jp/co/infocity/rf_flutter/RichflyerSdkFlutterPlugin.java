@@ -40,6 +40,7 @@ import jp.co.infocity.richflyer.action.RFActionListener;
 import jp.co.infocity.richflyer.history.RFContent;
 import jp.co.infocity.richflyer.util.RFResult;
 import jp.co.infocity.richflyer.view.TranslucentDialogActivity;
+import jp.co.infocity.richflyer.RichFlyerPostingResultListener;
 
 /**
  * RichflyerSdkFlutterPlugin
@@ -72,6 +73,22 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
                 // セグメントの登録
                 Map<String, String> segments = call.argument("segments");
                 registerSegments(segments);
+                break;
+
+            case "postMessage":
+                // イベント駆動型プッシュリクエスト
+                ArrayList<String> events = call.argument("events");
+                Map<String, String> variables = call.argument("variables");
+                Integer standbyTime = call.argument("standbyTime");
+
+                postMessage(events, variables, standbyTime);
+                break;
+
+            case "cancelMessage":
+                // イベント駆動型プッシュリクエストのキャンセル
+                String eventPostId = call.arguments();
+                cancelPosting(eventPostId);
+
                 break;
 
             case "getSegments":
@@ -177,6 +194,32 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
         RichFlyer.registerSegments(segments, activity.getApplicationContext(), new RichFlyerResultListener() {
             @Override
             public void onCompleted(RFResult result) {
+                String json = toJson(result);
+                channel.invokeMethod("onCallbackResult", json);
+            }
+        });
+    }
+
+    private void postMessage(ArrayList<String> events, Map<String,String> variables, Integer standbyTime) {
+        RichFlyer.postMessage(events.toArray(new String[events.size()]), variables, standbyTime, activity.getApplicationContext(), new RichFlyerPostingResultListener() {
+            @Override
+            public void onCompleted(RFResult result, String[] eventPostIds) {
+                Map<String, Object> res = new HashMap<>();
+                res.put("result", result.isResult());
+                res.put("errorCode", result.getErrorCode());
+                res.put("message", result.getMessage());
+                res.put("eventPostIds", eventPostIds);
+
+                String json = toJson(res);
+                channel.invokeMethod("onCallbackPostMessage", json);
+            }
+        });
+    }
+
+    private void cancelPosting(String eventPostId) {
+        RichFlyer.cancelPosting(eventPostId, activity.getApplicationContext(), new RichFlyerPostingResultListener() {
+            @Override
+            public void onCompleted(RFResult result, String[] eventPostIds) {
                 String json = toJson(result);
                 channel.invokeMethod("onCallbackResult", json);
             }

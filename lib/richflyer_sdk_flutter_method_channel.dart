@@ -12,6 +12,7 @@ class MethodChannelRichflyerSdkFlutter extends RichflyerSdkFlutterPlatform {
   final methodChannel = const MethodChannel('jp.co.infocity/richflyer');
 
   Function(RFResult result)? onCallbackResult;
+  Function(RFResult result, List<String> eventPostIds)? onCallbackPostMessage;
   static Function(String notificationId, RFAction rfAction)? onActionButtonTapped;
   static Function(String notificationId, String extendedProperty)? onAppLaunched;
 
@@ -22,7 +23,24 @@ class MethodChannelRichflyerSdkFlutter extends RichflyerSdkFlutterPlatform {
         case 'onCallbackResult':
           // RFResultを受け取る
           dynamic rfResult = call.arguments;
-          toRFResult(rfResult);
+          RFResult result = toRFResult(rfResult);
+          onCallbackResult?.call(result);
+          break;
+
+        case 'onCallbackPostMessage':
+        // RFResultを受け取る
+          dynamic rfResult = call.arguments;
+          RFResult result = toRFResult(rfResult);
+
+          final String jsonData = rfResult as String;
+          Map<String, dynamic> mapData = jsonDecode(jsonData);
+          List<String>? eventPostIds = mapData['eventPostIds'].cast<String>();
+          if (eventPostIds == null) {
+            onCallbackPostMessage?.call(result, [""]);
+          } else {
+            onCallbackPostMessage?.call(result, eventPostIds);
+          }
+
           break;
 
         case 'openNotificationStartApp':
@@ -124,18 +142,24 @@ class MethodChannelRichflyerSdkFlutter extends RichflyerSdkFlutterPlatform {
   }
 
   // RFResultオブジェクトに変換する
-  void toRFResult(dynamic result) {
+  RFResult toRFResult(dynamic result) {
     Map<String, dynamic> mapData = {};
-    if (result != null) {
-      final String jsonData = result as String;
-      mapData = jsonDecode(jsonData);
-      if (mapData.containsKey('code')) {
-        mapData['errorCode'] = mapData['code'];
-        mapData.remove('code');
+    try {
+      if (result != null) {
+        final String jsonData = result as String;
+        mapData = jsonDecode(jsonData);
+        if (mapData.containsKey('code')) {
+          mapData['errorCode'] = mapData['code'];
+          mapData.remove('code');
+        }
+        RFResult rfResult = RFResult.fromJson(mapData);
+        return rfResult;
       }
-      RFResult rfResult = RFResult.fromJson(mapData);
-      onCallbackResult?.call(rfResult);
+    }catch(e){
+      debugPrint("$e");
     }
+
+    return RFResult(false, 500, "");
   }
 
   // 初期化
@@ -224,5 +248,34 @@ class MethodChannelRichflyerSdkFlutter extends RichflyerSdkFlutterPlatform {
     Map<String,bool> options = {"badge":badge,"alert":alert,"sound":sound};
     await methodChannel.invokeMethod('setForegroundNotification',options);
   }
+
+  // イベント駆動型プッシュリクエスト
+  @override
+  Future<void> postMessage(List<String> events, Map<String,String>? variables, int? standbyTime,
+      Function(RFResult result, List<String> evnetPostIds) callback) async {
+    onCallbackPostMessage = callback;
+    final Map params = <String, dynamic>{
+      'events': events
+    };
+
+    if (variables != null) {
+      params['variables'] = variables;
+    }
+    if (standbyTime != null) {
+      params['standbyTime'] = standbyTime;
+    }
+
+    await methodChannel.invokeMethod('postMessage', params);
+  }
+
+  // イベント駆動型プッシュリクエストのキャンセル
+  @override
+  Future<void> cancelPosting(String eventPostId, Function(RFResult result) callback) async {
+    onCallbackResult = callback;
+    await methodChannel
+        .invokeMethod('cancelPosting', {'eventPostId': eventPostId});
+  }
+
+
 
 }

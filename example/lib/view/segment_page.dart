@@ -175,15 +175,18 @@ class _SegmentPageState extends State<SegmentPage> {
 
               _richflyerSdkFlutterPlugin.registerSegments(
                   stringSegments,intSegments,boolSegments,dateSegments,
-                  (result) => {
-                        // セグメント登録後の処理
-                        if (result.result)
-                          {debugPrint("${Strings.tag}セグメント登録成功")}
-                        else
-                          {
-                            debugPrint("${Strings.tag}${result.message} code: ${result.errorCode.toString()}")
-                          }
-                      });
+                  (result) {
+                    // セグメント登録後の処理
+                    String message = "";
+                    if (result.result) {
+                      debugPrint("${Strings.tag}セグメント登録成功");
+                      message += 'セグメントの登録が完了しました。\ncode:${result.errorCode}';
+                    } else {
+                      debugPrint("${Strings.tag}${result.message} code: ${result.errorCode.toString()}");
+                      message += 'セグメントの登録に失敗しました。\ncode:${result.errorCode}\nmessage:${result.message}';
+                    }
+                    _showMessageDialog(context, message);
+                  });
             },
             child: Text('登録'),
             style: ElevatedButton.styleFrom(
@@ -220,4 +223,25 @@ class _SegmentPageState extends State<SegmentPage> {
     }
     return _selectedValues;
   }
+
+  Future<void> _showMessageDialog(BuildContext context, String message) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('セグメント'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // ダイアログを閉じる
+              },
+              child: Text('閉じる'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
 }
