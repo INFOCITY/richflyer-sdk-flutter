@@ -16,3 +16,7 @@
   * Event-driven message delivery functionality is supported.
 * Update Android SDK v1.6.0
   * Event-driven message delivery functionality is supported.
+
+## 1.2.1
+
+* Bug Fixes

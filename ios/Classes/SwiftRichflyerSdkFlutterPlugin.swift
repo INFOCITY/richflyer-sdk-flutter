@@ -7,6 +7,7 @@ import UserNotifications
 public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
     
     static var channel: FlutterMethodChannel?
+    static var initialized: Bool = false
     
     public static func register(with registrar: FlutterPluginRegistrar) {
         channel = FlutterMethodChannel(name: "jp.co.infocity/richflyer", binaryMessenger: registrar.messenger())
@@ -17,6 +18,15 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
         registrar.addApplicationDelegate(instance)
     }
     
+    public static func register(delegate: RFNotificationDelegate) {
+      if let vc = getRootViewController() as? FlutterViewController {
+        if (channel == nil) {
+          channel = FlutterMethodChannel(name: "jp.co.infocity/richflyer", binaryMessenger: vc.binaryMessenger)
+        }
+        RFApp.setRFNotficationDelegate(delegate: delegate)
+      }
+    }
+  
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method{
             
@@ -132,7 +142,7 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
             }
         })
     }
-    
+      
     // 初期化
     private func RFInitialize(settings:[String:Any]) {
         
@@ -173,8 +183,10 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
             }
         }
         _ = rfCustomAppDelegate.application(UIApplication.shared,didFinishLaunchingWithOptions: nil)
+      
+        SwiftRichflyerSdkFlutterPlugin.initialized = true;
     }
-    
+      
     // セグメントを登録する
     private func registerSegments(segments:[String:String]) {
         RFApp.registSegments(segments: segments, completion: { (result: RFResult) in
@@ -292,6 +304,19 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
         }
         let jsonString = String(data: jsonData, encoding: .utf8)
         return jsonString
+    }
+  
+    private static func getRootViewController() -> UIViewController? {
+      if #available(iOS 13.0, *) {
+          if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+              if let window = windowScene.windows.first {
+                  return window.rootViewController
+              }
+          }
+      } else {
+          return UIApplication.shared.keyWindow?.rootViewController
+      }
+      return nil
     }
     
 }
