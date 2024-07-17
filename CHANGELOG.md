@@ -20,3 +20,7 @@
 ## 1.2.1
 
 * Bug Fixes
+
+## 1.2.2
+
+* Bug Fixes
