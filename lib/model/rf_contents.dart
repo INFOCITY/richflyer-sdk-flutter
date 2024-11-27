@@ -8,8 +8,9 @@ class RFContent{
   final String notificationId;
   final int receivedDate;
   final String title;
+  final String extendedProperty;
 
-  RFContent(this.contentType, this.gifPath, this.imagePath, this.message, this.moviePath, this.notificationDate, this.notificationId, this.receivedDate, this.title);
+  RFContent(this.contentType, this.gifPath, this.imagePath, this.message, this.moviePath, this.notificationDate, this.notificationId, this.receivedDate, this.title, this.extendedProperty);
 
   RFContent.fromJson(Map<String, dynamic> json)
       : contentType = json['contentType'],
@@ -20,7 +21,8 @@ class RFContent{
         notificationDate = json['notificationDate'],
         notificationId = json['notificationId'],
         receivedDate = json['receivedDate'],
-        title = json['title'];
+        title = json['title'],
+        extendedProperty = json['extendedProperty'];
 
   Map<String, dynamic> toJson() => {
     'contentType': contentType,
@@ -31,7 +33,8 @@ class RFContent{
     'notificationDate': notificationDate,
     'notificationId': notificationId,
     'receivedDate': receivedDate,
-    'title': title
+    'title': title,
+    'extendedProperty': extendedProperty
   };
 
 }

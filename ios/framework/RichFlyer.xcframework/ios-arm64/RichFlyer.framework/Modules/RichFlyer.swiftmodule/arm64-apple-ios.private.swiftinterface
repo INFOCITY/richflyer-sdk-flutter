@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RichFlyer
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name RichFlyer
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AVFoundation
 import CoreHaptics
 import DeveloperToolsSupport
@@ -69,38 +69,23 @@ extension RichFlyer.RFApp {
   public static func getReceivedData() -> Swift.Array<RichFlyer.RFContent>?
   public static func getLatestReceivedData() -> RichFlyer.RFContent?
 }
-public enum RFSendEventOption {
-  case firebase
-  case google
-  case facebook
-  case flurry
-  public static func == (a: RichFlyer.RFSendEventOption, b: RichFlyer.RFSendEventOption) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
 @_hasMissingDesignatedInitializers public class RFLogEventsUtil {
-  public static func setLogForFirebase(closure: @escaping (Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
-  public static func setLogForGoogle(closure: @escaping (Swift.String, Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
-  public static func setLogForFacebook(closure: @escaping (Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
-  public static func setLogForFlurry(closure: @escaping (Swift.String, Swift.Dictionary<Swift.String, Any>?) -> Swift.Void)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @available(iOS 10.0, *)
-@_Concurrency.MainActor(unsafe) open class RFNotificationContent : UIKit.UIViewController, UserNotificationsUI.UNNotificationContentExtension {
-  @_Concurrency.MainActor(unsafe) @objc public func didReceive(_ notification: UserNotifications.UNNotification)
-  @_Concurrency.MainActor(unsafe) @objc public var mediaPlayPauseButtonType: UserNotificationsUI.UNNotificationContentExtensionMediaPlayPauseButtonType {
+@_Concurrency.MainActor @preconcurrency open class RFNotificationContent : UIKit.UIViewController, UserNotificationsUI.UNNotificationContentExtension {
+  @_Concurrency.MainActor @preconcurrency @objc public func didReceive(_ notification: UserNotifications.UNNotification)
+  @_Concurrency.MainActor @preconcurrency @objc public var mediaPlayPauseButtonType: UserNotificationsUI.UNNotificationContentExtensionMediaPlayPauseButtonType {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc public var mediaPlayPauseButtonFrame: CoreFoundation.CGRect {
+  @_Concurrency.MainActor @preconcurrency @objc public var mediaPlayPauseButtonFrame: CoreFoundation.CGRect {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc public var mediaPlayPauseButtonTintColor: UIKit.UIColor
-  @_Concurrency.MainActor(unsafe) @objc public func mediaPlay()
-  @_Concurrency.MainActor(unsafe) @objc public func mediaPause()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc public var mediaPlayPauseButtonTintColor: UIKit.UIColor
+  @_Concurrency.MainActor @preconcurrency @objc public func mediaPlay()
+  @_Concurrency.MainActor @preconcurrency @objc public func mediaPause()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public enum RFContentType {
@@ -139,6 +124,9 @@ public enum RFContentType {
   public var notificationDate: Foundation.NSDate? {
     get
   }
+  public var extendedProperty: Swift.String {
+    get
+  }
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @available(iOS 10.0, *)
@@ -157,16 +145,16 @@ public enum RFAlertActionStyle : Swift.Int {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class RFAlertController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) public static let CLALERTVIEW_WIDTH: CoreFoundation.CGFloat
-  @_Concurrency.MainActor(unsafe) convenience public init(application: UIKit.UIApplication, title: Swift.String?, message: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func addView(view: UIKit.UIView) -> RichFlyer.RFAlertController
-  @_Concurrency.MainActor(unsafe) public func addImage(imageName: Swift.String) -> RichFlyer.RFAlertController
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) public func present(parent: UIKit.UIViewController, completeHandler: @escaping () -> Swift.Void)
-  @_Concurrency.MainActor(unsafe) public func present(completeHandler: @escaping () -> Swift.Void)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class RFAlertController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public static let CLALERTVIEW_WIDTH: CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency convenience public init(application: UIKit.UIApplication, title: Swift.String?, message: Swift.String?)
+  @_Concurrency.MainActor @preconcurrency public func addView(view: UIKit.UIView) -> RichFlyer.RFAlertController
+  @_Concurrency.MainActor @preconcurrency public func addImage(imageName: Swift.String) -> RichFlyer.RFAlertController
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency public func present(parent: UIKit.UIViewController, completeHandler: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public func present(completeHandler: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public protocol RFNotificationDelegate {
@@ -186,9 +174,15 @@ public class RFContentDisplay {
   public func dismiss()
   @objc deinit
 }
+#if compiler(>=5.3) && $NoncopyableGenerics
 extension Swift.Optional {
   public mutating func ensure(_ f: () throws -> Wrapped) rethrows -> Wrapped
 }
+#else
+extension Swift.Optional {
+  public mutating func ensure(_ f: () throws -> Wrapped) rethrows -> Wrapped
+}
+#endif
 @_hasMissingDesignatedInitializers public class RFLastNotificationInfo {
   public static var identifier: Swift.String? {
     get
@@ -216,8 +210,6 @@ public struct RFAction {
 }
 extension RichFlyer.RFAuthorizationOptions : Swift.Equatable {}
 extension RichFlyer.RFAuthorizationOptions : Swift.Hashable {}
-extension RichFlyer.RFSendEventOption : Swift.Equatable {}
-extension RichFlyer.RFSendEventOption : Swift.Hashable {}
 extension RichFlyer.RFContentType : Swift.Equatable {}
 extension RichFlyer.RFContentType : Swift.Hashable {}
 extension RichFlyer.RFAlertActionStyle : Swift.Equatable {}

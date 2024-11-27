@@ -329,6 +329,7 @@ extension RFContent {
         dictionary["message"] = self.body
         dictionary["notificationId"] = self.notificationId
         dictionary["imagePath"] = self.imagePath?.absoluteString
+        dictionary["extendedProperty"] = self.extendedProperty
         if let date = self.receivedDate {
             dictionary["receivedDate"] = date.timeIntervalSince1970
         }
