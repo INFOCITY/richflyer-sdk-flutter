@@ -44,7 +44,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.2.2')
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'jp.co.infocity:RichFlyer:1.6.8'
+    implementation 'jp.co.infocity:RichFlyer:1.6.9'
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
