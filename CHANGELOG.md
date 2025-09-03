@@ -32,3 +32,7 @@
 ## 1.2.4
 
 * Update Android SDK v1.6.9
+
+## 1.2.5
+
+* Update Android SDK v1.6.11
