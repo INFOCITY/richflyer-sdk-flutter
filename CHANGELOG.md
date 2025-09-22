@@ -36,3 +36,7 @@
 ## 1.2.5
 
 * Update Android SDK v1.6.11
+
+## 1.2.6
+
+* Updated to support the latest AGP for Flutter compatibility.

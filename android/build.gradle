@@ -28,6 +28,7 @@ rootProject.allprojects {
 }
 
 android {
+    namespace 'jp.co.infocity.rf_flutter'
     compileSdkVersion 33
 
     compileOptions {

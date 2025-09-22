@@ -1,6 +1,6 @@
 name: richflyer_sdk_flutter
 description: 'By embedding this SDK in your Flutter app, you will be able to receive push notifications delivered by RichFlyer.RichFlyer is a multifunctional push notification delivery ASP service that offers ultra-fast delivery, push notification delivery with rich content, and more.'
-version: 1.2.5
+version: 1.2.6
 homepage: https://richflyer.net
 repository: https://github.com/INFOCITY/richflyer_sdk_flutter
 

@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="jp.co.infocity.rf_flutter">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application>
         <service
             android:name="jp.co.infocity.rf_flutter.FirebaseMessagingServiceBase"

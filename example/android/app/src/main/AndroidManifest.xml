@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.richflyer.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
    <application
         android:label="RichFlyer"
         android:name="${applicationName}"
