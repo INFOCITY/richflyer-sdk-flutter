@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
@@ -47,7 +46,7 @@ import jp.co.infocity.richflyer.RichFlyerPostingResultListener;
  */
 public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
     public static MethodChannel channel;
-    private FlutterActivity activity = null;
+    private Activity activity = null;
     private String serviceKey = "";
     private String themeColor = "";
     private ArrayList<String> launchOptions = new ArrayList<String>();
@@ -228,7 +227,7 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
 
     // セグメントの取得
     private Map<String, String> getSegments() {
-        Map<String, String> segments = RichFlyer.getSegments(activity.getContext());
+        Map<String, String> segments = RichFlyer.getSegments(activity.getApplicationContext());
         return segments;
     }
 
@@ -311,7 +310,7 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
 
     @Override
     public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
-        activity = (FlutterActivity) binding.getActivity();
+        activity = binding.getActivity();
 
         binding.addOnNewIntentListener(new PluginRegistry.NewIntentListener() {
             @Override

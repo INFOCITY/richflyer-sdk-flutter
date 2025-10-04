@@ -40,3 +40,7 @@
 ## 1.2.6
 
 * Updated to support the latest AGP for Flutter compatibility.
+
+## 1.2.7
+
+* Updated to support for FlutterFragmentActivity.
