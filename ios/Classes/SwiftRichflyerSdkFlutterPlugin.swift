@@ -123,6 +123,14 @@ public class SwiftRichflyerSdkFlutterPlugin: NSObject, FlutterPlugin{
             guard let eventPostId =  call.arguments as? String else {break}
             cancelPosting(eventPostId)
 
+        case "onMessageReceived":
+            // Android Only
+            break;
+
+        case "onNewToken":
+            // Android Only
+            break;
+
         default:
             result(FlutterMethodNotImplemented)
         }

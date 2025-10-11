@@ -67,4 +67,12 @@ abstract class RichflyerSdkFlutterPlatform {
     throw UnimplementedError('cancelPosting() has not been implemented.');
   }
 
+  Future<void> onMessageReceived(Map<String, String> message) {
+    throw UnimplementedError('onMessageReceived() has not been implemented.');
+  }
+
+  Future<void> onNewToken(String token) {
+    throw UnimplementedError('onNewToken() has not been implemented.');
+  }
+
 }

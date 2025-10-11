@@ -26,6 +26,7 @@ import java.util.Map;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -45,17 +46,27 @@ import jp.co.infocity.richflyer.RichFlyerPostingResultListener;
  * RichflyerSdkFlutterPlugin
  */
 public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
-    public static MethodChannel channel;
+    private MethodChannel channel;
+    private MethodChannel backgroundChannel;
+    private Context applicationContext;
+    private FlutterPluginBinding pluginBinding;
     private Activity activity = null;
     private String serviceKey = "";
     private String themeColor = "";
     private ArrayList<String> launchOptions = new ArrayList<String>();
+    private RichFlyerFirebaseMessagingHandler firebaseMessagingHandler;
 
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-        channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "jp.co.infocity/richflyer");
-        channel.setMethodCallHandler(this);
+        this.pluginBinding = flutterPluginBinding;
+        this.applicationContext = flutterPluginBinding.getApplicationContext();
+
+        BinaryMessenger messenger = flutterPluginBinding.getBinaryMessenger();
+        backgroundChannel = new MethodChannel(messenger, "jp.co.infocity/richflyer_background");
+        backgroundChannel.setMethodCallHandler(this);
+
+        firebaseMessagingHandler = new RichFlyerFirebaseMessagingHandler(applicationContext);
     }
 
     @Override
@@ -83,9 +94,9 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
                 postMessage(events, variables, standbyTime);
                 break;
 
-            case "cancelMessage":
+            case "cancelPosting":
                 // イベント駆動型プッシュリクエストのキャンセル
-                String eventPostId = call.arguments();
+                String eventPostId = call.argument("eventPostId");
                 cancelPosting(eventPostId);
 
                 break;
@@ -121,6 +132,22 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
 
             case "setForegroundNotification":
                 // フォアグラウンド通知のオプション設定：iOS独自メソッド
+                break;
+
+            case "onMessageReceived":
+                // FCM FirebaseMessagingService.onMessageReceived()：Android独自メソッド
+                Map<String, String> data = call.arguments();
+                if (firebaseMessagingHandler != null) {
+                    firebaseMessagingHandler.onMessageReceived(data);
+                }
+                break;
+
+            case "onNewToken":
+                // FCM FirebaseMessagingService.onNewToken()：Android独自メソッド
+                String token = call.arguments();
+                if (firebaseMessagingHandler != null) {
+                    firebaseMessagingHandler.onNewToken(token);
+                }
                 break;
 
             default:
@@ -178,7 +205,9 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
                 @Override
                 public void onCompleted(RFResult result) {
                     String json = toJson(result);
-                    channel.invokeMethod("onCallbackResult", json);
+                    if (channel != null) {
+                        channel.invokeMethod("onCallbackResult", json);
+                    }
                     if (result.isResult()) {
                         // 設定された通知のみ起動時通知を行う
                         RichFlyer.setLaunchMode(activity.getApplicationContext(), strLaunchOptions);
@@ -194,7 +223,9 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
             @Override
             public void onCompleted(RFResult result) {
                 String json = toJson(result);
-                channel.invokeMethod("onCallbackResult", json);
+                if (channel != null) {
+                    channel.invokeMethod("onCallbackResult", json);
+                }
             }
         });
     }
@@ -210,7 +241,10 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
                 res.put("eventPostIds", eventPostIds);
 
                 String json = toJson(res);
-                channel.invokeMethod("onCallbackPostMessage", json);
+
+                if (channel != null) {
+                    channel.invokeMethod("onCallbackPostMessage", json);
+                }
             }
         });
     }
@@ -220,7 +254,9 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
             @Override
             public void onCompleted(RFResult result, String[] eventPostIds) {
                 String json = toJson(result);
-                channel.invokeMethod("onCallbackResult", json);
+                if (channel != null) {
+                    channel.invokeMethod("onCallbackResult", json);
+                }
             }
         });
     }
@@ -263,7 +299,9 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
                 @Override
                 public void onRFEventOnClickButton(@NonNull RFAction action, @NonNull String notifyAction) {
                     String json = toJson(action);
-                    channel.invokeMethod("openNotificationButtonAndroid", json);
+                    if (channel != null) {
+                        channel.invokeMethod("openNotificationButtonAndroid", json);
+                    }
                 }
                 // アプリを起動ボタンなどからアプリを起動した時
                 @Override
@@ -281,7 +319,9 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
                         data.put("extendedProperty", "");
                     }
                     String json = toJson(data);
-                    channel.invokeMethod("openNotificationStartApp", json);
+                    if (channel != null) {
+                        channel.invokeMethod("openNotificationStartApp", json);
+                    }
                 }
             });
         }
@@ -305,12 +345,20 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
 
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
-        channel.setMethodCallHandler(null);
+        this.applicationContext = null;
+        this.pluginBinding = null;
+        if (backgroundChannel != null) {
+            backgroundChannel.setMethodCallHandler(null);
+            backgroundChannel = null;
+        }
     }
 
     @Override
     public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
         activity = binding.getActivity();
+        BinaryMessenger messenger = pluginBinding.getBinaryMessenger();
+        channel = new MethodChannel(messenger, "jp.co.infocity/richflyer");
+        channel.setMethodCallHandler(this);
 
         binding.addOnNewIntentListener(new PluginRegistry.NewIntentListener() {
             @Override
@@ -358,15 +406,20 @@ public class RichflyerSdkFlutterPlugin implements FlutterPlugin, MethodCallHandl
 
     @Override
     public void onDetachedFromActivityForConfigChanges() {
-
+        onDetachedFromActivity();
     }
 
     @Override
     public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding binding) {
+        onAttachedToActivity(binding);
     }
 
     @Override
     public void onDetachedFromActivity() {
         this.activity = null;
+        if (channel != null) {
+            channel.setMethodCallHandler(null);
+            channel = null;
+        }
     }
 }

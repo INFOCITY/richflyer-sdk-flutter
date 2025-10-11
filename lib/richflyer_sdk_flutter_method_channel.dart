@@ -10,6 +10,8 @@ import 'richflyer_sdk_flutter_platform_interface.dart';
 class MethodChannelRichflyerSdkFlutter extends RichflyerSdkFlutterPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('jp.co.infocity/richflyer');
+  @visibleForTesting
+  final backgroundMethodChannel = const MethodChannel('jp.co.infocity/richflyer_background');
 
   Function(RFResult result)? onCallbackResult;
   Function(RFResult result, List<String> eventPostIds)? onCallbackPostMessage;
@@ -276,6 +278,13 @@ class MethodChannelRichflyerSdkFlutter extends RichflyerSdkFlutterPlatform {
         .invokeMethod('cancelPosting', {'eventPostId': eventPostId});
   }
 
+  @override
+  Future<void> onMessageReceived(Map<String, String> message) async {
+    await backgroundMethodChannel.invokeMethod('onMessageReceived', message);
+  }
 
-
+  @override
+  Future<void> onNewToken(String token) async {
+    await backgroundMethodChannel.invokeMethod('onNewToken', token);
+  }
 }

@@ -116,4 +116,15 @@ class RichflyerSdkFlutter {
   Future<void> cancelPosting(String eventPostId, Function(RFResult result) callback){
     return RichflyerSdkFlutterPlatform.instance.cancelPosting(eventPostId, callback);
   }
+
+  // Android: Dart側でFirebaseMessagingService.onMessageReceived()を受ける際に使用する
+  Future<void> onMessageReceived(Map<String, dynamic> message) {
+    final data = message.map((key, value) => MapEntry(key, value.toString()));
+    return RichflyerSdkFlutterPlatform.instance.onMessageReceived(data);
+  }
+
+  // Android: FirebaseMessagingService.onNewToken()を受ける際に使用する
+  Future<void> onNewToken(String token) {
+    return RichflyerSdkFlutterPlatform.instance.onNewToken(token);
+  }
 }

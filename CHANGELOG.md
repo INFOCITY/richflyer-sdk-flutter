@@ -44,3 +44,8 @@
 ## 1.2.7
 
 * Updated to support for FlutterFragmentActivity.
+
+## 1.2.8
+
+* (For Android app)Added a method to enable notification display when implementing FCM background message reception in Dart.
+
